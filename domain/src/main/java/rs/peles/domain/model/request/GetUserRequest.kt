@@ -1,5 +1,5 @@
 package rs.peles.domain.model.request
 
 class GetUserRequest(
-    val userId: Int
+    val userId: String
 )
