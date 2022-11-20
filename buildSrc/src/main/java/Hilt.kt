@@ -1,5 +1,5 @@
 object Hilt {
-    const val hiltVersion = "2.41"
+    const val hiltVersion = "2.42"
     private const val compilerVersion = "1.0.0"
 
     const val android = "com.google.dagger:hilt-android:$hiltVersion"

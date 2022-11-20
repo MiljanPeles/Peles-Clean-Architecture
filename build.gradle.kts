@@ -1,20 +1,21 @@
-buildscript {
+/*buildscript {
     repositories {
         gradlePluginPortal()
         google()
         mavenCentral()
     }
     dependencies {
-        classpath(Build.hiltAndroid)
+        //classpath(Build.hiltAndroid)
     }
-}
+}*/
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    id("com.android.application") version "7.3.1" apply(false)
-    id("com.android.library") version "7.3.1" apply(false)
-    id("org.jetbrains.kotlin.android") version "1.7.20" apply(false)
-    id("org.jetbrains.kotlin.jvm") version "1.7.20" apply(false)
+    id(Plugins.androidApplication) version Plugins.androidApplicationVersion apply(false)
+    id(Plugins.androidLibrary) version Plugins.androidLibraryVersion apply(false)
+    id(Plugins.kotlinAndroid) version Plugins.kotlinAndroidVersion apply(false)
+    id(Plugins.kotlinJvm) version Plugins.kotlinJvmVersion apply(false)
+    id(Plugins.hiltPlugin) version Hilt.hiltVersion apply(false)
 }
 
 tasks {

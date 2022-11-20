@@ -1,8 +1,8 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
+    id(Plugins.androidApplication)
+    id(Plugins.kotlinAndroid)
+    id(Plugins.kotlinKapt)
+    id(Plugins.daggerHilt)
 }
 
 android {
@@ -59,7 +59,7 @@ dependencies {
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
     implementation(AndroidX.constraintLayout)
-    implementation(AndroidX.lifecycleVmKtx)
+    implementation((AndroidX.lifecycleVmKtx))
     implementation(AndroidX.navigationFragment)
     implementation(AndroidX.navigationUi)
     implementation(Google.material)

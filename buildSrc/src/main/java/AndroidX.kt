@@ -13,7 +13,7 @@ object AndroidX {
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 
-    private const val lifecycleVmKtxVersion = "2.4.0-alpha02"
+    private const val lifecycleVmKtxVersion = "2.5.1"
     const val lifecycleVmKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVmKtxVersion"
 
     private const val navigationFragmentVersion = "2.3.5"

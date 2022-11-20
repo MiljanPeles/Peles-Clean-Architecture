@@ -14,7 +14,9 @@ import rs.peles.data.api.UserApi
 import rs.peles.data.model.mapper.UserDtoMapper
 import rs.peles.data.repository.UserDataSource
 import rs.peles.data.repository.UserRemoteDataSourceImpl
+import rs.peles.data.repository.UserRepositoryImpl
 import rs.peles.data.util.PInterceptor
+import rs.peles.domain.repository.UserRepository
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -22,62 +24,20 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DataModule {
 
-    @Provides
-    @Singleton
-    @Named("BaseUrl")
-    fun provideBaseUrl(): String = BuildConfig.BASE_URL
-
-    @Provides
-    @Singleton
-    @Named("AccessToken")
-    fun provideAccessToken(): String = BuildConfig.API_KEY
-
-    @Provides
-    @Singleton
-    @Named("LoggingInterceptor")
-    fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
-
-    @Provides
-    @Singleton
-    @Named("OkHttpClient")
-    fun provideOkHttpAthenaClient(
-        @Named("LoggingInterceptor") httpLoggingInterceptor: HttpLoggingInterceptor,
-        interceptor: PInterceptor,
-        chuckerInterceptor: ChuckerInterceptor
-    ): OkHttpClient =
-        OkHttpClient
-            .Builder()
-            .addInterceptor(httpLoggingInterceptor)
-            .addInterceptor(interceptor)
-            .addInterceptor(chuckerInterceptor)
-            .build()
-
-    @Provides
-    @Singleton
-    @Named("Retrofit")
-    fun provideAthenaRetrofit(
-        @Named("OkHttpClient") okHttpClient: OkHttpClient,
-        @Named("BaseUrl") baseUrl: String
-    ): Retrofit =
-        Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(okHttpClient)
-            .build()
-
-    @Provides
-    @Singleton
-    fun provideApi(
-        @Named("Retrofit") retrofit: Retrofit
-    ): UserApi = retrofit.create(UserApi::class.java)
-
-
     @Singleton
     @Provides
     fun provideUserDtoMapper(): UserDtoMapper {
         return UserDtoMapper()
     }
+
+    @Provides
+    @Singleton
+    fun provideUserRemoteDataSource(api: UserApi, mapper: UserDtoMapper): UserDataSource.Remote =
+        UserRemoteDataSourceImpl(api, mapper)
+
+    @Provides
+    @Singleton
+    fun provideUserRepository(remote: UserDataSource.Remote): UserRepository =
+        UserRepositoryImpl(remote)
 
 }

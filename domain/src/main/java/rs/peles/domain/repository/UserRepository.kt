@@ -6,8 +6,8 @@ import rs.peles.domain.util.PResult
 
 interface UserRepository {
 
-    suspend fun getUsers(): PResult<List<User>>
+    suspend fun getUsers(): List<User>
 
-    suspend fun getSpecificUser(userRequest: GetUserRequest): PResult<User>
+    suspend fun getSpecificUser(userRequest: GetUserRequest): User
 
 }

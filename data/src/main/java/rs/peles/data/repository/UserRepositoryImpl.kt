@@ -9,8 +9,8 @@ class UserRepositoryImpl(
     private val remote: UserDataSource.Remote
 ): UserRepository {
 
-    override suspend fun getUsers(): PResult<List<User>> = remote.getUsers()
+    override suspend fun getUsers(): List<User> = remote.getUsers()
 
-    override suspend fun getSpecificUser(userRequest: GetUserRequest): PResult<User> = remote.getSpecificUser(userRequest)
+    override suspend fun getSpecificUser(userRequest: GetUserRequest): User = remote.getSpecificUser(userRequest)
 
 }
