@@ -14,12 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import rs.peles.data.BuildConfig
 import rs.peles.data.api.UserApi
-import rs.peles.data.mapper.UserDtoMapper
-import rs.peles.data.repository.UserDataSource
-import rs.peles.data.repository.UserRemoteDataSourceImpl
-import rs.peles.data.repository.UserRepositoryImpl
 import rs.peles.data.util.PInterceptor
-import rs.peles.domain.repository.UserRepository
 import javax.inject.Named
 import javax.inject.Singleton
 
