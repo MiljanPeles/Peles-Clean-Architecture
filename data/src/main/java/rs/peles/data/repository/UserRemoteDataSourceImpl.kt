@@ -1,7 +1,7 @@
 package rs.peles.data.repository
 
 import rs.peles.data.api.UserApi
-import rs.peles.data.model.mapper.UserDtoMapper
+import rs.peles.data.mapper.UserDtoMapper
 import rs.peles.domain.model.User
 import rs.peles.domain.model.request.GetUserRequest
 import javax.inject.Inject

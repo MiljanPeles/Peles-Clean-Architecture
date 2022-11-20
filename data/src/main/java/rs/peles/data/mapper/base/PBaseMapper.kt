@@ -1,4 +1,4 @@
-package rs.peles.data.model.mapper.base
+package rs.peles.data.mapper.base
 
 /**
  * For mapping entity model to domain model & optionally we can add one more function for mapping domain model to entity model
