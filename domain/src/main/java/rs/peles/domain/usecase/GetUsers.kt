@@ -9,9 +9,9 @@ import rs.peles.domain.util.PResource
 
 class GetUsers(
     private val repository: UserRepository
-): BaseUseCase<Flow<PResource<List<User>>>, Void>() {
+): BaseUseCase<Flow<PResource<List<User>>>, Any?>() {
 
-    override suspend fun invoke(request: Void): Flow<PResource<List<User>>> = flow {
+    override suspend fun invoke(request: Any?): Flow<PResource<List<User>>> = flow {
 
         try {
             emit(PResource.Loading())
@@ -21,7 +21,7 @@ class GetUsers(
             emit(PResource.Success(response))
 
         } catch (e: Exception) {
-            emit(PResource.Error(e.message ?: ""))
+            emit(PResource.Error(e))
         }
 
     }

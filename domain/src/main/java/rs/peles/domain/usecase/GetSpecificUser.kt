@@ -22,7 +22,7 @@ class GetSpecificUser(
             emit(PResource.Success(response))
 
         } catch (e: Exception) {
-            emit(PResource.Error(e.message ?: ""))
+            emit(PResource.Error(e))
         }
 
     }

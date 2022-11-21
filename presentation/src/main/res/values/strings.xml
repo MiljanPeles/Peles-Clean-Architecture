@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Peles Clean Architecture</string>
+
+    <string name="string_basic_error">An unexpected error occurred.</string>
+    <string name="string_server_error">Something went wrong. Please try later.</string>
+    <string name="string_internet_error">Please check your internet connection.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

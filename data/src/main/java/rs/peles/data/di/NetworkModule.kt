@@ -48,7 +48,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideInterceptor(): PInterceptor = PInterceptor()
+    fun provideInterceptor(@ApplicationContext appContext: Context): PInterceptor = PInterceptor(appContext)
 
     @Provides
     @Singleton
@@ -68,7 +68,7 @@ object NetworkModule {
     @Provides
     @Singleton
     @Named("Retrofit")
-    fun provideAthenaRetrofit(
+    fun provideRetrofit(
         @Named("OkHttpClient") okHttpClient: OkHttpClient,
         @Named("BaseUrl") baseUrl: String
     ): Retrofit =
