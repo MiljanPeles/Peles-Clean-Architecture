@@ -11,31 +11,21 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import rs.peles.cleanarchitecture.MainActivity
 import rs.peles.cleanarchitecture.R
+import rs.peles.cleanarchitecture.base.BaseFragment
 import rs.peles.cleanarchitecture.databinding.FragmentUserBinding
 import rs.peles.cleanarchitecture.viewmodel.UserViewModel
 
 @AndroidEntryPoint
-class UserFragment : Fragment() {
-
-    private var _binding: FragmentUserBinding? = null
-    private val binding
-        get() = _binding!!
+class UserFragment : BaseFragment<FragmentUserBinding>() {
 
     private val userViewModel: UserViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentUserBinding.inflate(layoutInflater)
-        return binding.root
-    }
+    override val bindLayout: (LayoutInflater, ViewGroup?, Boolean) -> FragmentUserBinding
+        get() = FragmentUserBinding::inflate
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
+    override fun prepareView(savedInstanceState: Bundle?) {
         subscribeObservers()
-
         userViewModel.getUsers()
     }
 
@@ -60,11 +50,6 @@ class UserFragment : Fragment() {
             }
         }
 
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
 }

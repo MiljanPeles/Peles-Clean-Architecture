@@ -1,16 +1,18 @@
 package rs.peles.domain.usecase
 
+import kotlinx.coroutines.Dispatchers
 import rs.peles.domain.model.User
 import rs.peles.domain.repository.UserRepository
 import rs.peles.domain.usecase.base.BaseUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import rs.peles.domain.model.request.GetUserRequest
 import rs.peles.domain.util.PResource
 
 class GetSpecificUser(
     private val repository: UserRepository
-): BaseUseCase<Flow<PResource<User>>, GetUserRequest>() {
+): BaseUseCase<User, GetUserRequest>() {
 
     override suspend fun invoke(request: GetUserRequest): Flow<PResource<User>> = flow {
 
@@ -25,7 +27,7 @@ class GetSpecificUser(
             emit(PResource.Error(e))
         }
 
-    }
+    }.flowOn(Dispatchers.IO)
 
 
 }

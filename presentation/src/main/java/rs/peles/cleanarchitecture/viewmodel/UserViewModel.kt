@@ -30,7 +30,7 @@ class UserViewModel @Inject constructor(
     fun getUsers() {
         viewModelScope.launch(Dispatchers.IO) {
 
-            getUsers.invoke(null).collect {
+            getUsers.invoke().collect {
                 when (it) {
                     is PResource.Error -> {
                         _userList.emit(GetUserListUiState.Error(it.exception?.message!!))  // Todo handle exceptions
