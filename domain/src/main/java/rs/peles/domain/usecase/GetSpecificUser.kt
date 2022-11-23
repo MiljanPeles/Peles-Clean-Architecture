@@ -9,11 +9,12 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import rs.peles.domain.model.request.GetUserRequest
 import rs.peles.domain.util.PResource
+import javax.inject.Inject
 
 /**
  * Get Specific user use case which emits [PResource] events
  */
-class GetSpecificUser(
+class GetSpecificUser @Inject constructor(
     private val repository: UserRepository
 ): BaseUseCase<User, GetUserRequest>() {
 

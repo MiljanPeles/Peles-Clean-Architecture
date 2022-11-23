@@ -34,13 +34,14 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    @Named("LoggingInterceptor")
+    @Named("PLoggingInterceptor")
     fun provideLoggingInterceptor() = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
     @Provides
     @Singleton
+    @Named("ChuckerInterceptor")
     fun provideChuckerInterceptor(@ApplicationContext appContext: Context): ChuckerInterceptor =
         ChuckerInterceptor.Builder(appContext).collector(ChuckerCollector(appContext))
             .maxContentLength(250_000L).redactHeaders("Auth-Token", "Bearer")
@@ -48,15 +49,16 @@ object NetworkModule {
 
     @Provides
     @Singleton
+    @Named("PInterceptor")
     fun provideInterceptor(@ApplicationContext appContext: Context): PInterceptor = PInterceptor(appContext)
 
     @Provides
     @Singleton
     @Named("OkHttpClient")
     fun provideOkHttpAthenaClient(
-        @Named("LoggingInterceptor") httpLoggingInterceptor: HttpLoggingInterceptor,
-        interceptor: PInterceptor,
-        chuckerInterceptor: ChuckerInterceptor
+        @Named("PLoggingInterceptor") httpLoggingInterceptor: HttpLoggingInterceptor,
+        @Named("PInterceptor") interceptor: PInterceptor,
+        @Named("ChuckerInterceptor") chuckerInterceptor: ChuckerInterceptor
     ): OkHttpClient =
         OkHttpClient
             .Builder()

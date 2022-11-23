@@ -55,6 +55,7 @@ android {
 
 dependencies {
     implementation(project(Modules.domain))
+    implementation(project(Modules.data))
 
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
@@ -68,6 +69,16 @@ dependencies {
     implementation(Hilt.android)
     kapt(Hilt.androidCompiler)
     kapt(Hilt.compiler)
+
+    // Retrofit
+    implementation(Retrofit.retrofit)
+    implementation(Retrofit.gsonConverter)
+    implementation(Retrofit.okhttp3)
+    implementation(Retrofit.loggingInterceptor)
+
+    // Chucker
+    debugImplementation(Chucker.chuckerNetworkInspectionDebug)
+    releaseImplementation(Chucker.chuckerNetworkInspectionRelease)
 
     // Test
     testImplementation(Test.junit)

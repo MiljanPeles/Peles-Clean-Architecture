@@ -1,6 +1,7 @@
-package rs.peles.data.repository
+package rs.peles.data.source
 
 import rs.peles.domain.model.User
+import rs.peles.domain.model.request.GetLocalUserRequest
 import rs.peles.domain.model.request.GetUserRequest
 
 /**
@@ -20,7 +21,7 @@ interface UserDataSource {
      * Local Data Source
      */
     interface Local {
-        // Local business
+        suspend fun getSpecificUser(userRequest: GetLocalUserRequest): User
     }
 
     /**

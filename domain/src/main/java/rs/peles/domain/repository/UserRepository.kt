@@ -1,6 +1,7 @@
 package rs.peles.domain.repository
 
 import rs.peles.domain.model.User
+import rs.peles.domain.model.request.GetLocalUserRequest
 import rs.peles.domain.model.request.GetUserRequest
 
 interface UserRepository {
@@ -8,5 +9,7 @@ interface UserRepository {
     suspend fun getUsers(): List<User>
 
     suspend fun getSpecificUser(userRequest: GetUserRequest): User
+
+    suspend fun getLocalUser(userRequest: GetLocalUserRequest): User
 
 }

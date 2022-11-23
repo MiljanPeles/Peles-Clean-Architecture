@@ -79,6 +79,12 @@ dependencies {
     kapt(Hilt.androidCompiler)
     kapt(Hilt.compiler)
 
+    // Room
+    implementation(Room.roomRuntime)
+    annotationProcessor(Room.roomCompiler)
+    implementation(Room.roomKtx)
+    kapt(Room.roomCompiler)
+
     // Chucker
     debugImplementation(Chucker.chuckerNetworkInspectionDebug)
     releaseImplementation(Chucker.chuckerNetworkInspectionRelease)

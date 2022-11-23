@@ -1,4 +1,4 @@
-package rs.peles.data.repository
+package rs.peles.data.source
 
 import rs.peles.data.api.UserApi
 import rs.peles.data.mapper.UserDtoMapper

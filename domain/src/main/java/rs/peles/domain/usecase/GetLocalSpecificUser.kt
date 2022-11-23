@@ -1,29 +1,30 @@
 package rs.peles.domain.usecase
 
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import rs.peles.domain.model.User
 import rs.peles.domain.repository.UserRepository
 import rs.peles.domain.usecase.base.BaseUseCase
-import rs.peles.domain.usecase.base.BaseUseCaseWithOnlyOutput
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import rs.peles.domain.model.request.GetLocalUserRequest
+import rs.peles.domain.model.request.GetUserRequest
 import rs.peles.domain.util.PResource
 import javax.inject.Inject
 
 /**
- * Get users use case which emits [PResource] events
+ * Get Specific user use case which emits [PResource] events
  */
-class GetUsers @Inject constructor(
+class GetLocalSpecificUser @Inject constructor(
     private val repository: UserRepository
-): BaseUseCaseWithOnlyOutput<List<User>>() {
+): BaseUseCase<User, GetLocalUserRequest>() {
 
-    override suspend fun invoke(): Flow<PResource<List<User>>> = flow {
+    override suspend fun invoke(request: GetLocalUserRequest): Flow<PResource<User>> = flow {
 
         try {
             emit(PResource.Loading())
 
-            val response = repository.getUsers()
+            val response = repository.getLocalUser(request)
 
             emit(PResource.Success(response))
 
@@ -32,4 +33,6 @@ class GetUsers @Inject constructor(
         }
 
     }.flowOn(Dispatchers.IO)
+
+
 }
