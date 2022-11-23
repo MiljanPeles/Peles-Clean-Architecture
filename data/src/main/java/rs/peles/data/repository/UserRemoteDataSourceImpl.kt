@@ -6,6 +6,9 @@ import rs.peles.domain.model.User
 import rs.peles.domain.model.request.GetUserRequest
 import javax.inject.Inject
 
+/**
+ * Remote data source implementation class
+ */
 class UserRemoteDataSourceImpl @Inject constructor(
     private val userApi: UserApi,
     private val mapper: UserDtoMapper
@@ -15,7 +18,6 @@ class UserRemoteDataSourceImpl @Inject constructor(
         val result = userApi.getUsers().map {
             mapper.mapToDomainModel(it)
         }
-
         return result
     }
 

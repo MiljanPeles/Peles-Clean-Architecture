@@ -1,6 +1,5 @@
 package rs.peles.cleanarchitecture
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,7 +13,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         get() = ActivityMainBinding::inflate
 
     override fun prepareView(savedInstanceState: Bundle?) {
-        TODO("Not yet implemented")
+
     }
 
 

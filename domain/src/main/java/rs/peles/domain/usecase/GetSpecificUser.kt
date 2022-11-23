@@ -10,6 +10,9 @@ import kotlinx.coroutines.flow.flowOn
 import rs.peles.domain.model.request.GetUserRequest
 import rs.peles.domain.util.PResource
 
+/**
+ * Get Specific user use case which emits [PResource] events
+ */
 class GetSpecificUser(
     private val repository: UserRepository
 ): BaseUseCase<User, GetUserRequest>() {

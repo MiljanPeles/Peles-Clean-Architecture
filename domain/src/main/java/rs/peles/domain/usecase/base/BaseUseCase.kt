@@ -3,6 +3,9 @@ package rs.peles.domain.usecase.base
 import rs.peles.domain.util.PResource
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * BaseUseCase class for all use case instances that have both response and request.
+ */
 abstract class BaseUseCase<Response, Request> {
 
     abstract suspend operator fun invoke(
@@ -11,16 +14,22 @@ abstract class BaseUseCase<Response, Request> {
 
 }
 
-abstract class BaseUseCaseWithOnlyInput<in Input> {
+/**
+ * BaseUseCaseWithOnlyInput class for all use case instances that have only request.
+ */
+abstract class BaseUseCaseWithOnlyInput<in Request> {
 
     abstract suspend operator fun invoke(
-        request: Input
+        request: Request
     )
 
 }
 
-abstract class BaseUseCaseWithOnlyOutput<Output> {
+/**
+ * BaseUseCaseWithOnlyOutput class for all use case instances that have only response.
+ */
+abstract class BaseUseCaseWithOnlyOutput<Response> {
 
-    abstract suspend operator fun invoke() : Flow<PResource<Output>>
+    abstract suspend operator fun invoke() : Flow<PResource<Response>>
 
 }

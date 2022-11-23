@@ -1,19 +1,14 @@
-package rs.peles.cleanarchitecture.fragments
+package rs.peles.cleanarchitecture.ui.user
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import rs.peles.cleanarchitecture.MainActivity
-import rs.peles.cleanarchitecture.R
 import rs.peles.cleanarchitecture.base.BaseFragment
 import rs.peles.cleanarchitecture.databinding.FragmentUserBinding
-import rs.peles.cleanarchitecture.viewmodel.UserViewModel
 
 @AndroidEntryPoint
 class UserFragment : BaseFragment<FragmentUserBinding>() {
@@ -26,7 +21,8 @@ class UserFragment : BaseFragment<FragmentUserBinding>() {
 
     override fun prepareView(savedInstanceState: Bundle?) {
         subscribeObservers()
-        userViewModel.getUsers()
+
+        userViewModel.onTriggerEvent(UserIntent.GetUsers)
     }
 
     private fun subscribeObservers() {

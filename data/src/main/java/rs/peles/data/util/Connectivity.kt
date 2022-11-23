@@ -4,6 +4,9 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 
+/**
+ * Object for checking internet availability
+ */
 object Connectivity {
 
     fun isConnected(context: Context): Boolean {

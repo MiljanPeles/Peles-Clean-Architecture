@@ -1,6 +1,9 @@
 package rs.peles.domain.util
 
 
+/**
+ * PResource class is a wrapper class to wrap th data between the app layers.
+ */
 sealed class PResource<T>(
     val data: T? = null,
     val message: String? = null,

@@ -10,6 +10,9 @@ import rs.peles.domain.usecase.base.BaseUseCase
 import rs.peles.domain.usecase.base.BaseUseCaseWithOnlyOutput
 import rs.peles.domain.util.PResource
 
+/**
+ * Get users use case which emits [PResource] events
+ */
 class GetUsers(
     private val repository: UserRepository
 ): BaseUseCaseWithOnlyOutput<List<User>>() {
