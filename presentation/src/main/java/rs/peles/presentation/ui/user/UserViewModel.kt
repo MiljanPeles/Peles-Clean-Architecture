@@ -1,4 +1,4 @@
-package rs.peles.cleanarchitecture.ui.user
+package rs.peles.presentation.ui.user
 
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -6,7 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import rs.peles.cleanarchitecture.base.BaseViewModel
+import rs.peles.presentation.base.BaseViewModel
 import rs.peles.domain.model.User
 import rs.peles.domain.model.request.GetUserRequest
 import rs.peles.domain.usecase.GetSpecificUser

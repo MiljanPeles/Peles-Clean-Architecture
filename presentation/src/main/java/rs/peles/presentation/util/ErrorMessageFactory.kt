@@ -1,6 +1,6 @@
-package rs.peles.cleanarchitecture.util
+package rs.peles.presentation.util
 
-import rs.peles.cleanarchitecture.R
+import rs.peles.presentation.R
 
 class ErrorMessageFactory private constructor() {
 

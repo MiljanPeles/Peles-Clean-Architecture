@@ -1,10 +1,10 @@
-package rs.peles.cleanarchitecture
+package rs.peles.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import dagger.hilt.android.AndroidEntryPoint
-import rs.peles.cleanarchitecture.base.BaseActivity
-import rs.peles.cleanarchitecture.databinding.ActivityMainBinding
+import rs.peles.presentation.base.BaseActivity
+import rs.peles.presentation.databinding.ActivityMainBinding
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {

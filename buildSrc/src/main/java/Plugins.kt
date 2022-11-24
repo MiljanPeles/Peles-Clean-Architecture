@@ -15,9 +15,13 @@ object Plugins {
     const val kotlinJvmVersion = "1.7.20"
     const val kotlinJvm = "org.jetbrains.kotlin.jvm"
 
+    private const val safeArgsVersion = "2.5.3"
+    const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:$safeArgsVersion"
+
     // Other Modules plugins
     const val androidLibraryId = "com.android.library"
     const val kotlinKapt = "kotlin-kapt"
     const val daggerHilt = "dagger.hilt.android.plugin"
     const val javaLibrary = "java-library"
+    const val navigationSafeArgsKotlin = "androidx.navigation.safeargs.kotlin"
 }

@@ -13,6 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Peles Clean Architecture"
-include("presentation")
+include("app")
 include("domain")
 include("data")
+include(":presentation")

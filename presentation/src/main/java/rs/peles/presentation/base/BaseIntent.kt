@@ -1,4 +1,4 @@
-package rs.peles.cleanarchitecture.base
+package rs.peles.presentation.base
 
 /**
  * BaseIntent class for all [BaseIntent] instances.

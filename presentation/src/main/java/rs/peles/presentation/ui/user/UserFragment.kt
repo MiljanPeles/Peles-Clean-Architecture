@@ -1,4 +1,4 @@
-package rs.peles.cleanarchitecture.ui.user
+package rs.peles.presentation.ui.user
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import rs.peles.cleanarchitecture.base.BaseFragment
-import rs.peles.cleanarchitecture.databinding.FragmentUserBinding
+import rs.peles.presentation.base.BaseFragment
+import rs.peles.presentation.databinding.FragmentUserBinding
 
 @AndroidEntryPoint
 class UserFragment : BaseFragment<FragmentUserBinding>() {

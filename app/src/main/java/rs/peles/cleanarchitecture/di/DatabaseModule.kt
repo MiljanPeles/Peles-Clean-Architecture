@@ -1,4 +1,4 @@
-package rs.peles.data.di
+package rs.peles.cleanarchitecture.di
 
 import android.content.Context
 import androidx.room.Room

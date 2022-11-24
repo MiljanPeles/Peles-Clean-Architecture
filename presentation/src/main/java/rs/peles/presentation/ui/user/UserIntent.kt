@@ -1,6 +1,6 @@
-package rs.peles.cleanarchitecture.ui.user
+package rs.peles.presentation.ui.user
 
-import rs.peles.cleanarchitecture.base.BaseIntent
+import rs.peles.presentation.base.BaseIntent
 
 /**
  * UserIntent class to specify our events intentions.

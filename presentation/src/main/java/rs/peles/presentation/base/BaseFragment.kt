@@ -1,4 +1,4 @@
-package rs.peles.cleanarchitecture.base
+package rs.peles.presentation.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

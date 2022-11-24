@@ -1,4 +1,4 @@
-package rs.peles.cleanarchitecture.base
+package rs.peles.presentation.base
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler

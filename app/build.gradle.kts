@@ -1,30 +1,41 @@
 plugins {
-    id(Plugins.androidLibraryId)
+    id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
     id(Plugins.kotlinKapt)
     id(Plugins.daggerHilt)
-    id(Plugins.navigationSafeArgsKotlin)
 }
 
 android {
-    namespace = "rs.peles.presentation"
+    namespace = "rs.peles.cleanarchitecture"
     compileSdk = Android.compileSdk
 
+    /*signingConfigs {
+        create("release") {
+            storeFile = file("E:/Miljan Peles/Projekti/Projekat/Keystore/mykey.jks")
+            storePassword = "mypw!!"
+            keyAlias = "key0"
+            keyPassword = "mypw!!"
+        }
+    }*/
+
     defaultConfig {
+        applicationId = "rs.peles.cleanarchitecture"
         minSdk = Android.minSdk
         targetSdk = Android.targetSdk
+        versionCode = Android.versionCode
+        versionName = Android.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        //consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            //signingConfig = signingConfigs.getByName("release")
+        }
+        getByName("debug") {
+            versionNameSuffix = "-DEBUG"
         }
     }
     compileOptions {
@@ -43,8 +54,6 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.domain))
-
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
     implementation(AndroidX.constraintLayout)
@@ -58,6 +67,18 @@ dependencies {
     kapt(Hilt.androidCompiler)
     kapt(Hilt.compiler)
 
+    // Retrofit
+    implementation(Retrofit.retrofit)
+    implementation(Retrofit.gsonConverter)
+    implementation(Retrofit.okhttp3)
+    implementation(Retrofit.loggingInterceptor)
+
+    // Room
+    implementation(Room.roomRuntime)
+    annotationProcessor(Room.roomCompiler)
+    implementation(Room.roomKtx)
+    kapt(Room.roomCompiler)
+
     // Chucker
     debugImplementation(Chucker.chuckerNetworkInspectionDebug)
     releaseImplementation(Chucker.chuckerNetworkInspectionRelease)
@@ -67,4 +88,8 @@ dependencies {
     testImplementation(Test.truth)
     androidTestImplementation(Test.androidJunit)
     androidTestImplementation(Test.androidEspresso)
+
+    implementation(project(Modules.domain))
+    implementation(project(Modules.data))
+    implementation(project(Modules.presentation))
 }

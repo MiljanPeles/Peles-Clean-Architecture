@@ -1,4 +1,4 @@
-package rs.peles.data.di
+package rs.peles.cleanarchitecture.di
 
 import dagger.Module
 import dagger.Provides
