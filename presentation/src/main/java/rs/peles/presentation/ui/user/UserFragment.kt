@@ -34,7 +34,7 @@ class UserFragment : BaseFragment<FragmentUserBinding>() {
 
                     }
                     is UserViewModel.GetUserListUiState.Error -> {
-
+                        makeText(binding.root, getString(it.message))
                     }
                     is UserViewModel.GetUserListUiState.Success -> {
 

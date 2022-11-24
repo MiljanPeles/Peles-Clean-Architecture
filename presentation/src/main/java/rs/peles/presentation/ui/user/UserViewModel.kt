@@ -1,5 +1,6 @@
 package rs.peles.presentation.ui.user
 
+import androidx.annotation.StringRes
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -12,6 +13,7 @@ import rs.peles.domain.model.request.GetUserRequest
 import rs.peles.domain.usecase.GetSpecificUser
 import rs.peles.domain.usecase.GetUsers
 import rs.peles.domain.util.PResource
+import rs.peles.presentation.util.ErrorMessageFactory
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,7 +35,7 @@ class UserViewModel @Inject constructor(
             getUsers.invoke().collect {
                 when (it) {
                     is PResource.Error -> {
-                        _userList.emit(GetUserListUiState.Error(it.exception?.message!!))  // Todo handle exceptions
+                        _userList.emit(GetUserListUiState.Error(ErrorMessageFactory.create(e = it.exception!!)))
                     }
                     is PResource.Loading -> {
                         _userList.emit(GetUserListUiState.Loading)
@@ -52,7 +54,7 @@ class UserViewModel @Inject constructor(
             getSpecificUser.invoke(GetUserRequest(userId)).collect {
                 when (it) {
                     is PResource.Error -> {
-                        _specificUser.emit(GetUserUiState.Error(it.exception?.message!!)) // Todo handle exceptions
+                        _specificUser.emit(GetUserUiState.Error(ErrorMessageFactory.create(e = it.exception!!)))
                     }
                     is PResource.Loading -> {
                         _specificUser.emit(GetUserUiState.Loading)
@@ -69,14 +71,14 @@ class UserViewModel @Inject constructor(
         object Empty : GetUserUiState()
         object Loading : GetUserUiState()
         data class Success(val user: User?) : GetUserUiState()
-        data class Error(val message: String) : GetUserUiState()
+        data class Error(@StringRes val message: Int) : GetUserUiState()
     }
 
     sealed class GetUserListUiState {
         object Empty : GetUserListUiState()
         object Loading : GetUserListUiState()
         data class Success(val users: List<User> = emptyList()) : GetUserListUiState()
-        data class Error(val message: String) : GetUserListUiState()
+        data class Error(@StringRes val message: Int) : GetUserListUiState()
     }
 
 

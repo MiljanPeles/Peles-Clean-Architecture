@@ -57,6 +57,9 @@ dependencies {
     implementation(Hilt.android)
     kapt(Hilt.androidCompiler)
     kapt(Hilt.compiler)
+    
+    // Retrofit
+    implementation(Retrofit.retrofit)
 
     // Chucker
     debugImplementation(Chucker.chuckerNetworkInspectionDebug)
