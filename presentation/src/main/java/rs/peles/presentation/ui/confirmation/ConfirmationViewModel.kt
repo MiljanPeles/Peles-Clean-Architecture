@@ -1,7 +1,6 @@
 package rs.peles.presentation.ui.confirmation
 
 import android.net.Uri
-import androidx.annotation.StringRes
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -9,13 +8,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import rs.peles.presentation.base.BaseViewModel
-import rs.peles.domain.model.User
-import rs.peles.domain.model.request.GetUserRequest
-import rs.peles.domain.usecase.GetSpecificUser
-import rs.peles.domain.usecase.RegisterUserUseCase
-import rs.peles.domain.util.PResource
-import rs.peles.presentation.ui.user.SignUpViewModel
-import rs.peles.presentation.util.ErrorMessageFactory
 import java.io.File
 import java.lang.Exception
 import javax.inject.Inject

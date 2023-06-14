@@ -1,13 +1,11 @@
 package rs.peles.presentation.ui.confirmation
 
-import android.content.Intent
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -16,12 +14,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import rs.peles.presentation.base.BaseFragment
 import rs.peles.presentation.databinding.FragmentConfirmationBinding
-import rs.peles.presentation.databinding.FragmentSignUpBinding
-import rs.peles.presentation.ui.user.SignUpIntent
-import rs.peles.presentation.ui.user.SignUpViewModel
 import rs.peles.presentation.util.executeAsyncTask
 import rs.peles.presentation.util.hide
-import rs.peles.presentation.util.showToast
 
 @AndroidEntryPoint
 class ConfirmationFragment : BaseFragment<FragmentConfirmationBinding>() {
