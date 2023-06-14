@@ -1,9 +1,32 @@
 <resources>
-    <string name="app_name">Peles Clean Architecture</string>
+    <string name="app_name">Miljan Peles Assessment</string>
 
     <string name="string_basic_error">An unexpected error occurred.</string>
     <string name="string_server_error">Something went wrong. Please try later.</string>
     <string name="string_internet_error">Please check your internet connection.</string>
+
+    <!-- Sign Up Screen -->
+    <string name="string_profile_creation">Profile Creation</string>
+    <string name="string_header_subtitle">Use the form below to submit your portfolio. An email and password are required.</string>
+    <string name="string_first_name">First Name</string>
+    <string name="string_avatar">Avatar</string>
+    <string name="string_email_address">Email Address</string>
+    <string name="string_password">Password</string>
+    <string name="string_website">Website</string>
+    <string name="string_submit">Submit</string>
+    <string name="string_tap_to_add">Tap to add avatar</string>
+
+    <!-- Confirmation Screen -->
+    <string name="string_confirmation_subtitle">Your super-awesome portfolio has been successfully submitted! The preview below is what the community will see!</string>
+    <string name="string_sign_in">Sign In</string>
+
+    <!-- From code -->
+    <string name="string_fill_up_email">Please fill up your email address.</string>
+    <string name="string_fill_up_password">Please fill up your password.</string>
+    <string name="string_email_not_valid">Email Address is not valid.</string>
+    <string name="string_successfully_registered">Successfully registered.</string>
+    <string name="string_password_validation">Password must have at least %d characters and %d classes</string>
+    <string name="string_grant_permission">Please grant Camera permission.</string>
 
 
 </resources>

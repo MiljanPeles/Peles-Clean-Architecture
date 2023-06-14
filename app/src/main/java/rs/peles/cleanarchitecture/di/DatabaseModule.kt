@@ -26,7 +26,7 @@ object DatabaseModule {
     }
 
     @Provides
-    fun providePrayDao(myRoomDatabase: UserDatabase): UserDao {
+    fun provideUserDao(myRoomDatabase: UserDatabase): UserDao {
         return myRoomDatabase.userDao()
     }
 

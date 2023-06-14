@@ -9,9 +9,10 @@ class UserEntityMapper: PBaseMapper<UserEntity, User> {
 
     override fun mapToDomainModel(model: UserEntity): User {
         return User(
-            name = model.name,
-            lastname = model.lastname,
-            age = model.age
+            name = model.name ?: "",
+            email = model.email,
+            website = model.website ?: "",
+            photoUrl = model.photoUrl ?: ""
         )
     }
 

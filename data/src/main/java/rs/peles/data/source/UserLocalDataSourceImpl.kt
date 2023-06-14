@@ -15,7 +15,7 @@ class UserLocalDataSourceImpl @Inject constructor(
 ): UserDataSource.Local {
 
     override suspend fun getSpecificUser(userRequest: GetLocalUserRequest): User {
-        return mapper.mapToDomainModel(userDao.getUser(userRequest.name, userRequest.lastname, userRequest.age))
+        return mapper.mapToDomainModel(userDao.getUser(userRequest.name))
     }
 
 }

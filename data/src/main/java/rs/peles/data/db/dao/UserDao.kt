@@ -12,7 +12,7 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(note: List<UserEntity>)
 
-    @Query("SELECT * FROM user WHERE name = :name AND lastname = :lastname AND age = :age")
-    fun getUser(name: String, lastname: String, age: Int): UserEntity
+    @Query("SELECT * FROM user WHERE name = :name")
+    fun getUser(name: String): UserEntity
 
 }

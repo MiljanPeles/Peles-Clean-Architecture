@@ -9,8 +9,9 @@ class UserDtoMapper: PBaseMapper<UserDto, User> {
     override fun mapToDomainModel(model: UserDto): User {
         return User(
             name = model.name ?: "",
-            lastname = model.lastname ?: "",
-            age = model.age ?: -1
+            email = model.email ?: "",
+            photoUrl = model.imageUrl ?: "",
+            website = model.website ?: ""
         )
     }
 
